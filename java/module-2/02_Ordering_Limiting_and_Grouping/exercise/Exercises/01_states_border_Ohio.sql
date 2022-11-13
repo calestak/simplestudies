@@ -6,4 +6,4 @@
 SELECT city_name || ', ' || state_abbreviation AS name_and_state, population
 FROM city
 WHERE state_abbreviation IN ('PA', 'WV', 'KY', 'IN', 'MI')
-ORDER BY state_abbreviation, city_name;
+ORDER BY state_abbreviation ASC, city_name ASC;
