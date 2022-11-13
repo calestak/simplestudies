@@ -6,5 +6,5 @@ SELECT census_region, AVG(population) AS average_population, MIN(population) AS 
 FROM state
 WHERE census_region IS NOT NULL
 GROUP BY census_region
-ORDER BY average_population DESC;
+ORDER BY average_population ASC;
 
