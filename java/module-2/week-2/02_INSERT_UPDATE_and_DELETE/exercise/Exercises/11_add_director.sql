@@ -2,5 +2,5 @@
 
 INSERT INTO person (person_name)
 VALUES ('Calesta Holloway');
-UPDATE movie 
-SET director_id = (SELECT person_id FROM person WHERE person_name = 'Calesta Holloway');
+UPDATE movie
+SET director_id = (SELECT person_id FROM person WHERE person_name = 'Calesta Holloway' AND movie.title = 'The Blob');

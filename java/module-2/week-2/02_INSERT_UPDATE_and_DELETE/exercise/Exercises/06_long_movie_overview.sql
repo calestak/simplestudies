@@ -3,5 +3,4 @@
 
 update movie
 set overview = movie.overview ||' '||'This is a long movie.'
-where movie.length_minutes>210
-RETURNING movie.overview;
+where movie.length_minutes>210;
