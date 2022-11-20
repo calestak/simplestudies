@@ -11,7 +11,7 @@ CREATE TABLE member(
 	phone_number varchar(100) NULL,
 	date_of_birth date NOT NULL,
 	flag_reminder boolean,
-	CONSTRAINT PK_member PRIMARY KEY (member_id)
+	CONSTRAINT PK_member PRIMARY KEY (member_number)
 );
 
 -- Table interest_group
@@ -19,4 +19,15 @@ CREATE TABLE interest_group(
 	group_number serial NOT NULL,
 	group_name varchar(100) NOT NULL,
 	CONSTRAINT PK_interest_group PRIMARY KEY (group_number)
+);
+
+-- Table event
+CREATE TABLE event(
+	event_number serial NOT NULL,
+	name int NOT NULL,
+	description int NOT NULL,
+	start_date NOT NULL,
+	CONSTRAINT PK_event PRIMARY KEY (event_number),
+	CONSTRAINT FK_pet_service_pet FOREIGN KEY(pet_id) REFERENCES pet (pet_id),
+	CONSTRAINT FK_pet_service_service FOREIGN KEY(service_id) REFERENCES service (service_id)
 );
