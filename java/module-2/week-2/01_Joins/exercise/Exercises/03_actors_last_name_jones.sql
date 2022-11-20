@@ -5,5 +5,5 @@ SELECT person_name, movie.title
 FROM person
 JOIN movie_actor ON person.person_id = movie_actor.actor_id
 JOIN movie ON movie_actor.movie_id = movie.movie_id
-WHERE person_name LIKE '%Jones'
+WHERE person_name LIKE '% Jones'
 ORDER BY person_name ASC, movie.title ASC;
