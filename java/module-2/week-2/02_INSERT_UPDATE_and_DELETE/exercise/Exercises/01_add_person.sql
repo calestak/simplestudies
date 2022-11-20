@@ -3,4 +3,4 @@
 INSERT INTO person (person_name, birthday)
 VALUES 
 ('Lisa Byway', '1984-04-15')
-RETURNING person.person_name;
+RETURNING person.person_name, person.birthday;
