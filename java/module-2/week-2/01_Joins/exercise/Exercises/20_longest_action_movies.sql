@@ -7,5 +7,5 @@ FROM movie
 JOIN movie_genre ON movie.movie_id = movie_genre.movie_id
 JOIN genre ON movie_genre.genre_id = genre.genre_id
 WHERE genre_name = 'Action'
-ORDER BY length_minutes DESC
+ORDER BY length_minutes DESC, release_date DESC
 LIMIT 5;
