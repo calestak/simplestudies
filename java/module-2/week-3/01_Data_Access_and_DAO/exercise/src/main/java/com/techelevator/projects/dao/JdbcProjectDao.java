@@ -2,6 +2,7 @@ package com.techelevator.projects.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import javax.sql.DataSource;
 
@@ -36,8 +37,12 @@ public class JdbcProjectDao implements ProjectDao {
 		Project project= new Project();
 		project.setId(results.getInt("project_id"));
 		project.setName(results.getString("name"));
-		project.setFromDate(results.getDate("from_date").toLocalDate());
-		project.setToDate(results.getDate("to_date").toLocalDate());
+		if (results.getDate("from_date") != null ) {
+			project.setFromDate(results.getDate("from_date").toLocalDate());
+		}
+		if (results.getDate("to_date") != null) {
+			project.setToDate(results.getDate("to_date").toLocalDate());
+		}
 		return project;
 	}
 
@@ -60,11 +65,10 @@ public class JdbcProjectDao implements ProjectDao {
 		String sql = "INSERT INTO project ( name, from_date, to_date )" +
 				"VALUES (?, ?, ?) " + "RETURNING project_id";
 
-		int parkId =
-				jdbcTemplate.queryForObject(sql, int.class, newProject.getName()
+		int projectId = jdbcTemplate.queryForObject(sql, int.class, newProject.getName()
 						,newProject.getFromDate(), newProject.getToDate());
 
-		newProject.setId(project_id);
+		newProject.setId(projectId);
 		return newProject;
 	}
 

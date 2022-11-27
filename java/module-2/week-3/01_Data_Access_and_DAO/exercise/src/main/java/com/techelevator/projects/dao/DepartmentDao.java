@@ -26,8 +26,9 @@ public interface DepartmentDao {
 	 * Update a department to the datastore. Only called on departments that
 	 * are already in the datastore.
 	 *
-	 * @param updatedDepartment the department object to update
-	 */
-	public void updateDepartment(Department updatedDepartment);
+     * @param updatedDepartment the department object to update
+     * @return
+     */
+	public boolean updateDepartment(Department updatedDepartment);
 
 }

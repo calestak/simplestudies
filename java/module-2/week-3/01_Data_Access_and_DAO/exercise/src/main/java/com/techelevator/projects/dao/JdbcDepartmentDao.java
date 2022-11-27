@@ -56,12 +56,13 @@ public class JdbcDepartmentDao implements DepartmentDao {
 	}
 
 	@Override
-	public void updateDepartment(Department updatedDepartment) {
-		String sql = "UPDATE department SET department_id = ?, name = ?  " +
-				"WHERE id = ?;";
+	public boolean updateDepartment(Department updatedDepartment) {
+		String sql = "UPDATE department SET name = ? " +
+				"WHERE department_id = ?;";
 		int numberOfRows =
-				jdbcTemplate.update(sql, updatedDepartment.getId()
-						,updatedDepartment.getName());
+				jdbcTemplate.update(sql, updatedDepartment.getName(),
+						updatedDepartment.getId());
+		return numberOfRows == 1;
 	}
 
 }
