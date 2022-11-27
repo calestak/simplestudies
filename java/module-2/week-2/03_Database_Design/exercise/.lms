@@ -18,16 +18,20 @@ CREATE TABLE member(
 CREATE TABLE interest_group(
 	group_number serial NOT NULL,
 	group_name varchar(100) NOT NULL,
+	member_number serial NULL,
 	CONSTRAINT PK_interest_group PRIMARY KEY (group_number)
 );
 
 -- Table event
 CREATE TABLE event(
 	event_number serial NOT NULL,
-	name int NOT NULL,
-	description int NOT NULL,
-	start_date NOT NULL,
+	event_name varchar(100) NOT NULL,
+	description varchar(1000) NOT NULL,
+	start_date_time datetime (1000-01-01 00:00:00' to '9999-12-31 23:59:59) NOT NULL,
+	duration
+	group_name varchar(100) NOT NULL,
+	member_number serial NULL,
 	CONSTRAINT PK_event PRIMARY KEY (event_number),
-	CONSTRAINT FK_pet_service_pet FOREIGN KEY(pet_id) REFERENCES pet (pet_id),
-	CONSTRAINT FK_pet_service_service FOREIGN KEY(service_id) REFERENCES service (service_id)
+	CONSTRAINT FK_event_interest_group FOREIGN KEY(group_name) REFERENCES interest_group (group_name),
+	CONSTRAINT FK_event_member FOREIGN KEY(member_number) REFERENCES member (member_name)
 );
