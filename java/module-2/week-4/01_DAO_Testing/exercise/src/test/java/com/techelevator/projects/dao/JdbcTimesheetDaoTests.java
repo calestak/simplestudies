@@ -126,11 +126,6 @@ public class JdbcTimesheetDaoTests extends BaseDaoTests {
         Timesheet retrievedTimesheet = dao.getTimesheet(1);
         Assert.assertNull(retrievedTimesheet);
 
-        List<Timesheet> timesheets = dao.getTimesheetsByEmployeeId(2);
-        Assert.assertEquals(2, timesheets.size());
-        assertTimesheetsMatch(TIMESHEET_1, timesheets.get(0));
-        assertTimesheetsMatch(TIMESHEET_2, timesheets.get(1));
-
     }
 
     @Test
@@ -139,6 +134,8 @@ public class JdbcTimesheetDaoTests extends BaseDaoTests {
        assertBillableHoursMatch(3, billlableHours);
 
     }
+
+
 
     private void assertBillableHoursMatch(int i, Double billlableHours) {
     }

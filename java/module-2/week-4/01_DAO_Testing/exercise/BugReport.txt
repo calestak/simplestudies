@@ -2,12 +2,19 @@ Bug 1
 -----
 Test that demonstrates problem:
 
+     getTimesheetsByEmployeeId_returns_list_of_all_timesheets_for_employee
+
 Expected output:
+
+    Expected(2)
 
 Actual output:
 
+    Actual(1)
+
 How did you fix this bug?
 
+    Had to change my if statement to a while statement in order to ensure the test continued to run while statement was true
 
 Bug 2
 -----
