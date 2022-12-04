@@ -130,15 +130,16 @@ public class JdbcTimesheetDaoTests extends BaseDaoTests {
 
     @Test
     public void getBillableHours_returns_correct_total() {
-       Double billlableHours = dao.getBillableHours(1, 1);
-       assertBillableHoursMatch(3, billlableHours);
+       Double billableHours = dao.getBillableHours(1, 1);
+       Assert.assertEquals(2.5, billableHours, .001);
+
+        Double billableHoursTest = dao.getBillableHours(2, 2);
+        Assert.assertEquals(0, billableHoursTest, .001);
 
     }
 
 
 
-    private void assertBillableHoursMatch(int i, Double billlableHours) {
-    }
 
     private void assertTimesheetsMatch(Timesheet expected, Timesheet actual) {
         Assert.assertEquals(expected.getTimesheetId(), actual.getTimesheetId());

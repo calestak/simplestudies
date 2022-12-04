@@ -39,20 +39,32 @@ Bug 3
 -----
 Test that demonstrates problem:
 
+    updated_timesheet_has_expected_values_when_retrieved
+
 Expected output:
+
+    test actually passed while looking for debugs
 
 Actual output:
 
 How did you fix this bug?
 
+    noticed sql language needed to be updated added billable
 
 Bug 4
 -----
 Test that demonstrates problem:
 
+    getBillableHours_returns_correct_total
+
 Expected output:
+
+   expected 0 hours
 
 Actual output:
 
+    showed 2.5 hours
+
 How did you fix this bug?
 
+    first I had to add the billable boolean restriction to my sql then I had to update my test language to ensure the proper comparisons were happening
