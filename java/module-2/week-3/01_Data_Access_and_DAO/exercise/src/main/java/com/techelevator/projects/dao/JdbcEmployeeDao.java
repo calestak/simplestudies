@@ -70,8 +70,8 @@ public class JdbcEmployeeDao implements EmployeeDao {
 
 	@Override
 	public void addEmployeeToProject(int projectId, int employeeId) {
-		String sql = "INSERT INTO project (employee_id, department_id, first_name, last_name, birth_date, hire_date) " +
-				"VALUES (?, ?, ?, ?, ?, ?) " +
+		String sql = "INSERT INTO project (employee_id) " +
+				"VALUES (?) " +
 				"RETURNING project_id;";
 		jdbcTemplate.update(sql, projectId, employeeId);
 

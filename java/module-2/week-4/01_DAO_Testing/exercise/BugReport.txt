@@ -13,11 +13,19 @@ Bug 2
 -----
 Test that demonstrates problem:
 
+    getTimesheetsByProjectId_returns_list_of_all_timesheets_for_project
+
 Expected output:
+
+    Expected(3)
 
 Actual output:
 
+    Actual(2)
+
 How did you fix this bug?
+
+    replaced the WHERE employee_id = ? to WHERE project_id = ?; to fix where the information is being pulled from
 
 
 Bug 3
