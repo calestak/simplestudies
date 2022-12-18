@@ -7,8 +7,8 @@ import com.techelevator.auctions.model.Auction;
 public class AuctionService {
 
     public static String API_BASE_URL = "http://localhost:3000/auctions/";
-    public static String API_TITLE_URL = "http://localhost:3000/auctions?title_like=";
-    public static String API_PRICE_URL = "http://localhost:3000/auctions?currentBid_lte=";
+ // public static String API_TITLE_URL = "http://localhost:3000/auctions?title_like=";
+  //  public static String API_PRICE_URL = "http://localhost:3000/auctions?currentBid_lte=";
 
     private RestTemplate restTemplate = new RestTemplate();
 
@@ -25,12 +25,12 @@ public class AuctionService {
 
     public Auction[] getAuctionsMatchingTitle(String title) {
         // call api here
-        return restTemplate.getForObject(API_TITLE_URL + title, Auction[].class);
+        return restTemplate.getForObject(API_BASE_URL + "?title_like=" + title , Auction[].class);
     }
 
     public Auction[] getAuctionsAtOrBelowPrice(double price) {
         // call api here
-        return restTemplate.getForObject(API_PRICE_URL + price, Auction[].class);
+        return restTemplate.getForObject(API_BASE_URL + "?currentBid_lte=" + price, Auction[].class);
     }
 
 }
