@@ -18,48 +18,36 @@ public class AuctionController {
 
         this.dao = new MemoryAuctionDao();
     }
-
     @RequestMapping(method = RequestMethod.GET)
-    public List<Auction> list() {
+    public List<Auction> list(@RequestParam (defaultValue = "") String title_like,
+                              @RequestParam (defaultValue = "0") double currentBid_lte) {
+        if (title_like != null && currentBid_lte > 0)
+        {
+            return dao.searchByTitleAndPrice(title_like, currentBid_lte);
+        }
+        else if (title_like != null)
+        {
+            return dao.searchByTitle(title_like);
+        }
+        else if (currentBid_lte <= currentBid_lte)
+        {
+            return dao.searchByPrice(currentBid_lte);
+        }
+
         return dao.list();
     }
-
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public Auction get(@PathVariable int id) {
         return dao.get(id);
     }
-
-    /*   @RequestMapping(value = "/auctions", method = RequestMethod.POST)
-       public Auction create(@RequestBody Auction auction) {
-           if (auction != null)
-               dao.create(auction);
-           return auction;
-
-       }*/
-    @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value = "", method = RequestMethod.POST)
-    public Auction add(@RequestBody Auction auction) {
-        return dao.create(auction);
-    }
-
+    @RequestMapping(method = RequestMethod.POST)
+    public Auction create(@RequestBody Auction auction) {
+        if (auction != null)
+            dao.create(auction);
+        return auction;
     }
 
 
-   /* @RequestMapping(path = "/auctions?title_like", method = RequestMethod.GET)
-    public List<Auction> auction(@RequestParam(value = "title_like", defaultValue = "") String title) {
-        return dao.list();
-    }
 
-    @RequestMapping(value = "/auctions", method = RequestMethod.POST)
-    public Auction add(@RequestBody Auction auction) {
-        if (auction != null) {
-            auction(auction.getTitle()).add(auction);
-            return auction;
-        }
-        return null;
-
-    } */
-
-
-
+}
 
