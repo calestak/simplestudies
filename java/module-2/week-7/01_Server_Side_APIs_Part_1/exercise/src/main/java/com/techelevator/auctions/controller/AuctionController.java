@@ -18,6 +18,7 @@ public class AuctionController {
 
         this.dao = new MemoryAuctionDao();
     }
+
     @RequestMapping(method = RequestMethod.GET)
     public List<Auction> list(@RequestParam (defaultValue = "") String title_like,
                               @RequestParam (defaultValue = "0") double currentBid_lte) {
@@ -36,10 +37,12 @@ public class AuctionController {
 
         return dao.list();
     }
+
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public Auction get(@PathVariable int id) {
         return dao.get(id);
     }
+
     @RequestMapping(method = RequestMethod.POST)
     public Auction create(@RequestBody Auction auction) {
         if (auction != null)
