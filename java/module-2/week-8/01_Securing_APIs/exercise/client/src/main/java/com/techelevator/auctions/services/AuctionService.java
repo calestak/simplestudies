@@ -11,6 +11,12 @@ public class AuctionService {
 
     public static final String API_BASE_URL = "http://localhost:8080/auctions/";
     private RestTemplate restTemplate = new RestTemplate();
+    private HttpEntity<Auction> auctionHttpEntity(Auction auction) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.setBearerAuth(authToken);
+        return new HttpEntity<>(auction, headers);
+    }
 
     private String authToken = null;
 
@@ -34,6 +40,9 @@ public class AuctionService {
         Auction auction = null;
         try {
             // Add code here to send the request to the API and get the auction from the response.
+            ResponseEntity<Auction> response = restTemplate.exchange(API_BASE_URL + id,
+                    HttpMethod.GET, makeAuthEntity(), Auction.class);
+            auction = response.getBody();
         } catch (RestClientResponseException | ResourceAccessException e) {
             BasicLogger.log(e.getMessage());
         }
