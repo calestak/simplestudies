@@ -66,7 +66,7 @@ public class AuctionController {
             return updatedAuction;
         }
     }
-    @PreAuthorize("hasAnyRole('ADMIN', 'CREATOR')")
+    @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable int id) {
