@@ -6,5 +6,5 @@ SELECT pe.first_name || ' ' || pe.last_name AS full_name, COUNT(b.foreword_by)AS
 FROM person pe
 JOIN book_author ba ON ba.author_id = pe.person_id 
 JOIN book b ON b.book_id = ba.book_id
-GROUP BY full_name
+GROUP BY full_name 
 ORDER BY full_name ASC;

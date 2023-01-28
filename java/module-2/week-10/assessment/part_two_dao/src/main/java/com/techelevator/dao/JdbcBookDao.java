@@ -18,12 +18,27 @@ public class JdbcBookDao implements BookDao {
 
     @Override
     public List<Book> getBooks() {
-        return new ArrayList<>();
+        List<Book> books =new ArrayList<>();
+        String sql = "SELECT * " +
+                "FROM book ";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
+            Book book = mapRowToBook(results);
+            books.add(book);
+        }
+        return books;
     }
 
     @Override
     public Book createBook(Book newBook) {
-        return null;
+        String sql = "INSERT INTO book (book_title, star_rating, out_of_print, foreword_by, publisher_id, published_date) " +
+                "VALUES (?, ?, ?, ?, ?, ?) RETURNING book_id";
+        Integer bookId =
+                jdbcTemplate.queryForObject(sql, Integer.class, newBook.getBookTitle(),
+                        newBook.getStarRating(), newBook.isOutOfPrint(), newBook.getForewordBy(), newBook.getPublisherId(), newBook.getPublishedDate());
+        // Set the saleId attribute of the Sale object to the saleId returned.
+        newBook.setBookId(bookId);
+        return newBook;
     }
 
     private Book mapRowToBook(SqlRowSet results) {
