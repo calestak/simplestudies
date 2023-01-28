@@ -18,14 +18,31 @@ public class JdbcBookDao implements BookDao {
     }
 
     @Override
-    public Book getBook(int bookId) { return null; }
+    public Book getBook(int bookId) {
+        Book book = null;
+        String sql = "SELECT book_id" +
+                "FROM book" +
+                "WHERE book_id = ? :";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, bookId);
+        while (results.next()) {
+            book = mapRowToBook(results);
+        }
+        return book;
+    }
 
     @Override
-    public Book updateRating(int bookId, BigDecimal newRating) { return null; }
+    public Book updateRating(int bookId, BigDecimal newRating) {
+        String sql = "UPDATE book" +
+        "SET book_title = ?, star_rating = ?, out_of_print =? return null, foreword_by =?,publisher_id =?, published_date =?" +
+    "WHERE book_id =?";
+        jdbcTemplate.update(sql, bookId);
+        return null;
+    }
 
     @Override
     public void deleteBook(int bookId) {
-        throw new UnsupportedOperationException("Not implemented yet.");
+        String deleteBook= "DELETE FROM book WHERE book_id = ?";
+        jdbcTemplate.update(deleteBook, bookId);
     }
 
     private Book mapRowToBook(SqlRowSet results) {
