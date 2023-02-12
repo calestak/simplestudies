@@ -1,0 +1,28 @@
+body{
+    background-color: black;
+    color:chartreuse;
+   
+}
+h1{
+text-align: center;
+}
+img{
+    width: 400px;
+}
+h2{
+    text-decoration: underline;
+}
+    td{
+     text-align: center;
+    }
+    th{
+       font-weight: bold;
+       text-decoration: underline ;
+    }
+    blockquote{
+        font-style: italic;
+    }
+    form{
+        background-color: tomato;
+    }
+    
