@@ -4,18 +4,35 @@ body {
 }
 
 header {
+  display:flex;
   background-color: #F0F0F0;
   padding: 20px;
 }
 
 .logo {
   width: 140px;
+      /* For testing purposes */
+      border-width: 1px;
+      border-style: solid;
+      border-color: blue; 
+}
+
+nav {
+      flex-grow: 5;
+  
+      /* For testing purposes */
+      border-width: 1px;
+      border-style: solid;
+      border-color: red; 
 }
 
 ul {
+  display: flex;
+  justify-content: center;
   margin: 0;
   padding: 0;
   list-style-type: none;
+
 }
 
 li {
@@ -25,6 +42,11 @@ li {
   color: #707070;
   padding: 0 20px 0 0;
   margin-left: 20px;
+
+      /* For testing purposes */
+      border-width: 1px;
+      border-style: solid;
+      border-color: blue; 
 }
 
 a,

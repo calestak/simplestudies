@@ -4,6 +4,7 @@ body {
 }
 
 header {
+  display: flex;
   background-color: #F0F0F0;
   padding: 20px;
 }
@@ -12,7 +13,19 @@ header {
   width: 140px;
 }
 
+nav {
+  flex-grow: 5;
+  
+
+        /* For testing purposes */
+        border-width: 1px;
+        border-style: solid;
+        border-color: red; 
+}
+
 ul {
+  display: flex;
+  justify-content: flex-end;
   margin: 0;
   padding: 0;
   list-style-type: none;
