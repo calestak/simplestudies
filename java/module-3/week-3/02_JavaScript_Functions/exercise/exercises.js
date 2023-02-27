@@ -37,8 +37,11 @@
  * @param {function} filterFunction the function to filter with
  * @returns {number[]} the filtered array
  */
+
     let unfilteredArray = [1, 2, 3, 4, 5, 6];
- 
+    function useParameterToFilterArray(filterFunction) {
+        return unfilteredArray.filter(filterFunction);
+      }
 /**
  * Write a function called makeNumber that takes two strings
  * of digits, concatenates them together, and returns
@@ -51,8 +54,9 @@
  * @param {string} [second=''] the second string of digits to concatenate
  * @returns {number} the resultant number
  */
- function makeNumber(str1, str2){
-    return +(str1+str2)
+ function makeNumber(first, second=''){
+     let joinString = first + second;
+    return parseFloat(joinString);
 }
 /**
  * Write a function called addAll that takes an unknown number of parameters
