@@ -2,6 +2,7 @@ const todoList = document.getElementById('todos');
 
 let todos = [];
 let pageTitle = '';
+const tasks = document.querySelectorAll('li');
 
 function init() {
   pageTitle = 'My Morning Routine';
@@ -38,6 +39,8 @@ function addTodos() {
   todoList.appendChild(ul);
 }
 
-init();
-addPageTitle();
-addTodos();
+document.addEventListener("DOMContentLoaded", () => {
+  init();
+  addPageTitle();
+  addTodos();
+});
