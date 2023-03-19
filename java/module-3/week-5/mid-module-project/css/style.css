@@ -2,3 +2,24 @@
     style.css - this stylesheet is linked from index.html to apply styles to the products home page.
     Add all of your custom styles here.
 */
+header{
+    background-attachment: fixed;
+    background-position: center;
+    position:fixed;
+}
+header > img {
+    height: 250px;
+    padding-left: 600px;;
+}
+li {
+    display: inline;
+}
+.left{
+    margin-left: auto;
+}
+.right{
+    margin: right 200px;;
+}
+body{
+    position: relative;
+}

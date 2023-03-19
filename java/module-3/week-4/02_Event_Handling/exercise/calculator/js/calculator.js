@@ -77,6 +77,7 @@ performOperation();
 parseNumber();
 clickOperator();
 clickNumber();
+
   // set the variable called display declared at the top of this file equal to the display element
   // HINT: use its id #display to get a reference to it
 
