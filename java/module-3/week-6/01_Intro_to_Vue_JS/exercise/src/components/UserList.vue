@@ -87,8 +87,7 @@ export default {
           emailAddress: "msmith@foo.com",
           status: "Inactive",
         },
-      ]
-    ,
+      ],
       search: {
         firstName: "",
         lastName: "",
@@ -107,10 +106,10 @@ export default {
           user.userName.toLowercase().includes(this.search.userName) &&
           user.emailAddress.toLowercase().includes(this.search.emailAddress) &&
           user.status().includes(this.search.status)
-        );
-      });
-    },
-  },
+        )
+      })
+    }
+  }
 };
 </script>
 
