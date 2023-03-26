@@ -63,12 +63,12 @@
     </table>
 
     <div class="all-actions">
-      <button>Enable Users</button>
-      <button>Disable Users</button>
+      <button :disabled="actionButtonDisable" v-on:click ="enableSelectedUsers">Enable Users</button>
+      <button >Disable Users</button>
       <button>Delete Users</button>
     </div>
 
-    <button v-on:click="toggleForm">Add New User</button>
+    <button v-on:click="toggleForm = !toggleForm">Add New User</button>
 
     <form id="frmAddNewUser">
       <div class="field">
@@ -192,7 +192,12 @@ export default {
         this.users(userIndex).status === "Active" ? "Disable" : "Active";
     }
   },
-  
+  enableSelectedUsers()  {
+      this.selectedUserIDs.forEach((id) => this.setStatus (id, 'Active'));
+      this.selectedUserIDs = [];
+    },
+
+
   computed: {
     filteredList() {
       let filteredUsers = this.users;
