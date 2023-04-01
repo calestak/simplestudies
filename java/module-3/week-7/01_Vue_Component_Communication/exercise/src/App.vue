@@ -11,8 +11,9 @@ import ReadingList from './components/ReadingList.vue';
 export default {
   name: 'app',
   components: {
-    ReadingList
-  }
+    ReadingList, 
+  }, 
+
 }
 </script>
 
