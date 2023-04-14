@@ -9,7 +9,17 @@
  * Example 3: filteredSum([]) --> 0
  */
 function filteredSum(arr) {
-
+    let result = 0;
+    for (const value of arr) {
+        // Optional validation for numeric
+        if (parseInt(value) !== NaN) {
+            // Sum values greater than 0 and less than or equal to 100
+            if (value > 0 && value <= 100) {
+                result = result + value;
+            }
+        }
+    }
+    return result;
 }
 
 /**
@@ -29,7 +39,25 @@ function filteredSum(arr) {
  *   }
  */
 function yearlyBookCount(year, bookArray) {
-
+    let result = {
+        pagesFiction: 0,
+        pagesNonFiction: 0
+    }
+    for (const book of bookArray) {
+        // Loop over the array of dates looking for a matching year
+        for (const date of book.datesRead) {
+            const readYear = date.substr(6, 4);
+            if (year === readYear) {
+                // The year matches, so add to the appropriate count
+                if (book.genres.includes('Fiction')) {
+                    result.pagesFiction += book.pageCount;
+                } else {
+                    result.pagesNonFiction += book.pageCount;
+                }
+            }
+        }
+    }
+    return result;
 }
 
 /**
@@ -54,5 +82,28 @@ function yearlyBookCount(year, bookArray) {
  * }
  */
 function yearlyBookStatistics(year, bookArray) {
+    let result = {
+        totalBooks: 0
+    }
     
+    for (const book of bookArray) {
+        // Loop over the array of dates looking for a matching year
+        for (const date of book.datesRead) {
+            const readYear = date.substr(6, 4);
+            if (year === readYear) {
+                // The year matches, so add to the total count
+                result.totalBooks++;
+                // Loop over the genre array adding to each genre count
+                for (const genre of book.genres) {
+                    if (result[genre] === undefined) {
+                        // If the property for that genre doesn't exist, create it
+                        result[genre] = 1;
+                    } else {
+                        result[genre]++;
+                    }
+                }
+            }
+        }
+    }
+    return result;
 }
