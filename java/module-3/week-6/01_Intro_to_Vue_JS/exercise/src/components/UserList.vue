@@ -23,12 +23,7 @@
           </select>
         </td>
       </tr>
-      <tr v-for="(user, index) in users" :key="index"/>
-      <tr
-        v-for="user in filteredList"
-        v-bind:key="user.userName"
-        v-bind:class="{ disabled: user.status === 'Inactive' }"
-      >
+      <tr v-for="(user, index) in users" :key="index">
         <td>{{ user.firstName }}</td>
         <td>{{ user.lastName }}</td>
         <td>{{ user.username }}</td>
