@@ -5,6 +5,7 @@ body {
 }
 
 .bio {
+  display: flex;
   background-color: #F0F0F0;
   padding: 20px;
   margin-bottom: 20px;
@@ -12,6 +13,7 @@ body {
 }
 
 .bio img {
+  order: 0;
   width: 150px;
   border-radius: 999px;
   margin: 0 10px;

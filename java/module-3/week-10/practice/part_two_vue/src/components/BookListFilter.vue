@@ -56,6 +56,8 @@ export default {
 
 <style scoped>
 #movie-filter {
+  background-color: #C0B387;
+  border: 1px solid #30362F;
   display: flex;
   flex-wrap: nowrap;
   align-items: top;
@@ -107,7 +109,9 @@ button {
   margin-right: 0.5rem;
   width: 100px;
 }
-
+button[type=submit] {
+  background-color: #E69C60;
+}
 select {
   background-color: #F9F6F0;
   border: 1px solid #30362F;

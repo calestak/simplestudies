@@ -5,7 +5,9 @@ body {
 }
 
 .container {
+  display: flex;
   background-color: #F0F0F0;
+  justify-content: space-evenly;
 }
 
 .box {

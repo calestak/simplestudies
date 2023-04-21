@@ -1,4 +1,5 @@
 body {
+  display: flex;
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -8,17 +9,33 @@ body {
 
 #left-panel {
   background-color: #F7F7F7;
+  width: 35%; 
+  display: flex;
+  flex-direction: column; 
 }
 
 ul.social-icons {
+  display: flex;
+  justify-content: space-between;
   list-style-type: none;
   margin: 20px 20px;
   padding: 0;
 }
 
-nav {}
+nav {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
 
-#right-panel {}
+#right-panel {
+  background-color: #f0b0a9;
+  flex-grow: 0;
+  flex-basis: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* YOU WON'T NEED TO CHANGE ANY STYLES BELOW THIS LINE */
 

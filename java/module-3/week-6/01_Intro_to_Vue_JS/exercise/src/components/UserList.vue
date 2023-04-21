@@ -23,7 +23,7 @@
           </select>
         </td>
       </tr>
-      <!-- user listing goes here -->
+      <tr v-for="(user, index) in users" :key="index"/>
       <tr
         v-for="user in filteredList"
         v-bind:key="user.userName"

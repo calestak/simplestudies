@@ -4,12 +4,22 @@ body {
 }
 
 header {
-  display: flex;
+  display: flex;  
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   background-color: #F0F0F0;
   padding: 20px;
 }
+#header {
+  display: flex;
+}
+nav{
+  display:flex;
+}
 
 .logo {
+  display: flex;
   width: 140px;
 }
 
@@ -21,6 +31,7 @@ ul {
 }
 
 li {
+  display: flex;
   font-family: 'Oswald', sans-serif;
   font-size: 20px;
   text-transform: uppercase;

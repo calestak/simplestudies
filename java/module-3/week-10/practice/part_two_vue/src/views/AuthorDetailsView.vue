@@ -43,7 +43,17 @@ export default {
     }
   },
   created() {
-    this.isLoading = false;
+     this.isLoading = true;
+    bookService.getAuthorById(this.authorId)
+      .then(response => {
+        this.authorData = response.data;
+        this.isLoading = false;
+      })
+      .catch((error) => {
+        this.isLoading = false;
+        this.error = `Could not get author for id ${this.authorId}.`;
+        console.log(this.error, error.response);
+      });
   }
 }
 </script>

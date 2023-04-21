@@ -18,11 +18,7 @@
         <label>Select Books:</label>
         <p>
           <!-- Task 6 - Show the author's books as links to the BookDetails view -->
-          <router-link class="book-title"
-              v-bind:to="{ name: 'bookDetails', params: {bookId: book.id} }"
-              v-for="book of author.books" v-bind:key="book.id">
-            {{book.title}}
-          </router-link>
+      
         </p>
       </div>
     </section>
@@ -42,7 +38,11 @@ export default {
 </script>
 
 <style scoped>
-article {
+artic    <router-link class="book-title"
+              v-bind:to="{ name: 'bookDetails', params: {bookId: book.id} }"
+              v-for="book of author.books" v-bind:key="book.id">
+            {{book.title}}
+          </router-link>le {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
